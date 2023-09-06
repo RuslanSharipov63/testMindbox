@@ -1,0 +1,6 @@
+.noActive {
+    text-decoration: line-through;
+}
+.iconsTodo {
+    cursor: pointer;
+}

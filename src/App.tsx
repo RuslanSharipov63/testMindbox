@@ -1,25 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import TextField from './components/textfield/TextField';
+import Button from './components/button/Button';
+import Todos from './components/todos/Todos';
+import { useAppSelector } from './hooks/Hooks';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const { todos } = useAppSelector(state => state.ChangeInputSlice)
+  const [todosState, setTodosState] = useState<
+    {
+      id: string;
+      todo: string;
+      checked: boolean;
+    }[]
+    | null>(null)
+
+  useEffect(() => {
+    if (todos.length > 1) {
+      const newTodos: { id: string; todo: string; checked: boolean }[] | null = todos.filter(item => item.id != '')
+      setTodosState(newTodos)
+      return;
+    }
+  }, [todos])
+
+  useEffect(() => {
+    if (todos.length === 1) {
+      setTodosState(null)
+      return;
+    }
+  }, [todos])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {todosState ? <ul className="collection">
+        {todosState.map((item: { id: string; todo: string; checked: boolean }) =>
+          <Todos
+            id={item.id}
+            todo={item.todo}
+            isChecked={item.checked}
+          />
+        )}
+      </ul> : null
+      }
+      < TextField />
+      <Button />
+    </>
   );
 }
 
