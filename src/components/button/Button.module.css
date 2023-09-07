@@ -1,0 +1,29 @@
+.buttonContainer {
+    width: 30%;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .buttonContainer {
+        width: 50%;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 600px) {
+    .buttonContainer {
+        width: 40%;
+    }
+}
+
+@media (max-width: 400px) {
+    .buttonContainer {
+        width: 50%;
+    }
+
+}
