@@ -31,7 +31,7 @@ const Todos: FC<TodosProps> = ({ id, todo, isChecked }) => {
                         checked={isChecked}
                         onChange={startChangeCheckbox}
                     />
-                    <span>выполнено</span>
+                    <span>{isChecked === true ? 'выполнено' : 'не выполнено'}</span>
                 </label>
             </div>
         </li >

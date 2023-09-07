@@ -6,13 +6,25 @@ type todosType = {
     checked: boolean
 }
 
+type HelperTextType =
+    {
+        change: boolean;
+        text: string;
+    }
+
+
 type initialStateType = {
     value: string;
+    helperText: HelperTextType;
     todos: todosType[]
 }
 
 const initialState: initialStateType = {
     value: '',
+    helperText: {
+        change: false,
+        text: '',
+    },
     todos: [
         {
             id: '',
@@ -45,9 +57,23 @@ const ChangeInputSlice = createSlice({
                     item.checked = !item.checked
                 }
             })
+        },
+        handleChangeHelperText: (state, action: PayloadAction<HelperTextType>) => {
+            state.helperText = action.payload;
+        },
+        focusChange: (state) => {
+            state.value = '';
         }
     }
 })
 
-export const { handleChangeInput, addToDo, clearInput, deleteTodo, changeCheckBox } = ChangeInputSlice.actions;
+
+export const { handleChangeInput,
+    addToDo,
+    clearInput,
+    deleteTodo,
+    changeCheckBox,
+    handleChangeHelperText,
+    focusChange
+} = ChangeInputSlice.actions;
 export default ChangeInputSlice.reducer;

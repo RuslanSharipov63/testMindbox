@@ -6,7 +6,8 @@ import { useAppSelector } from './hooks/Hooks';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const { todos } = useAppSelector(state => state.ChangeInputSlice)
+  const { todos, helperText } = useAppSelector(state => state.ChangeInputSlice)
+
   const [todosState, setTodosState] = useState<
     {
       id: string;
