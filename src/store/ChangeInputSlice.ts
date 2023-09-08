@@ -11,7 +11,7 @@ type HelperTextType = {
   text: string;
 };
 
-type initialStateType = {
+export type initialStateType = {
   value: string;
   helperText: HelperTextType;
   todos: todosType[];
