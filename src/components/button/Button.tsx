@@ -8,9 +8,11 @@ import {
 import TodoValidator from "../../helpers/TodoValidator";
 import styles from "./Button.module.css";
 
+
 const Button = () => {
   const dispatch = useAppDispatch();
   const { value } = useAppSelector((state) => state.ChangeInputSlice);
+
 
   const Add = () => {
     if (TodoValidator(value)) {
@@ -27,7 +29,7 @@ const Button = () => {
     dispatch(
       handleChangeHelperText({ change: true, text: "некорректная задача" })
     );
-  };
+  }; 
 
   return (
     <a

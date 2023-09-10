@@ -1,4 +1,4 @@
-const TodoValidator = (params: string): boolean => {
+const todoValidator = (params: string): boolean => {
     let result: boolean = false;
     const regValue =/^[а-яёa-z0-9]+/i;
     if (regValue.test(params)) {
@@ -10,6 +10,6 @@ const TodoValidator = (params: string): boolean => {
     return result;
 }
 
-export default TodoValidator;
+export default todoValidator;
 
 /* /^(?=.*[A-Z0-9])[\w.,!\?"'\/$ ]+$/i; */

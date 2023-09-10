@@ -10,11 +10,10 @@ import {
 } from "../../store/ChangeInputSlice";
 import TodoValidator from "../../helpers/TodoValidator";
 
+
 const TextField = () => {
   const dispatch = useAppDispatch();
-  const { value, helperText } = useAppSelector(
-    (state) => state.ChangeInputSlice
-  );
+  const { value, helperText } = useAppSelector((state) => state.ChangeInputSlice);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(handleChangeHelperText({ change: false, text: "" }));
@@ -37,6 +36,8 @@ const TextField = () => {
       dispatch(
         handleChangeHelperText({ change: true, text: "некорректная задача" })
       );
+
+
     }
   };
 
@@ -45,21 +46,20 @@ const TextField = () => {
   };
 
   return (
-
-      <div className="input-field">
-        <input
-          value={value}
-          id="first_name2"
-          type="text"
-          className="validate"
-          onChange={handleInputChange}
-          onKeyDown={Add}
-          onFocus={startFocusChange}
-        />
-        <label className="active" htmlFor="first_name2">
-          {helperText.change === true ? helperText.text : "введите задачу"}
-        </label>
-      </div>
+    <div className="input-field">
+      <input
+        value={value}
+        id="first_name2"
+        type="text"
+        className="validate"
+        onChange={handleInputChange}
+        onKeyDown={Add}
+        onFocus={startFocusChange}
+      />
+      <label className="active" htmlFor="first_name2">
+        {helperText.change === true ? helperText.text : "введите задачу"}
+      </label>
+    </div>
   );
 };
 

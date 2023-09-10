@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useAppDispatch } from "../../store/store";
+import { useAppDispatch } from "../../hooks/Hooks";
 import { deleteTodo, changeCheckBox } from "../../store/ChangeInputSlice";
 import styles from "./Todos.module.css";
 
